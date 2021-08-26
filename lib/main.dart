@@ -12,8 +12,37 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String message = 'Ini adalah Text';
+
+  void tombolDitekan() {
+    setState(() {
+      message = 'Tombol sudah ditekan';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Anonymous Method'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(message),
+              RaisedButton(
+                  child: Text('Tekan saya'),
+                  onPressed: () {
+                    setState(() {
+                      message = 'Tombol sudah ditekan';
+                    });
+                  }),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
